@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "recipetool-1ac74": {
+      "hosting": {
+        "ngbytes-fireauth": [
+          "recipetool-1ac74"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "recipetool-1ac74"
+  }
+}

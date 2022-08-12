@@ -100,8 +100,21 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {
+            "prerender": false,
+            "ssr": false,
+            "browserTarget": "ngbytes-fireauth:build:production",
+            "firebaseProject": "recipetool-1ac74",
+            "firebaseHostingSite": "recipetool-1ac74"
+          }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "c625f50c-f8d3-41bb-a72b-ea775c8d9c8f"
   }
 }
