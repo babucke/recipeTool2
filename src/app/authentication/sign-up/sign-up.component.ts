@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { EmailValidation, PasswordValidation, RepeatPasswordEStateMatcher, RepeatPasswordValidator } from 'src/app/shared/services/validators';
-import { AuthService } from '../../shared/services/auth.service';
+import { AuthService } from 'src/app/shared/services/authentication/auth.service';
+import { RepeatPasswordEStateMatcher, EmailValidation, PasswordValidation, RepeatPasswordValidator } from 'src/app/shared/services/authentication/validators';
 @Component({
   selector: 'app-sign-up',
   templateUrl: './sign-up.component.html',

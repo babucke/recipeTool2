@@ -1,51 +1,50 @@
-<form [formGroup]="signUpForm"
-  (ngSubmit)="authService.SignUp(signUpForm.get('email')?.value, signUpForm.get('password')?.value)">
-  <div class="form-content">
-    <div class="form-field">
-      <mat-form-field>
-        <input matInput formControlName="email" placeholder="Email">
-        <mat-error *ngIf="signUpForm.get('email')?.hasError('required')">
-          E-mail is mandatory.
-        </mat-error>
-        <mat-error *ngIf="signUpForm.get('email')?.hasError('email')">
-          Incorrect E-mail.
-        </mat-error>
-      </mat-form-field>
+<div fxLayout="column" fxLayoutAlign="space-around center">
+  <form [formGroup]="signUpForm"
+    (ngSubmit)="authService.SignUp(signUpForm.get('email')?.value, signUpForm.get('password')?.value)">
+    <div class="form-content">
+      <div class="form-field">
+        <mat-form-field>
+          <input matInput formControlName="email" placeholder="Email">
+          <mat-error *ngIf="signUpForm.get('email')?.hasError('required')">
+            E-mail is mandatory.
+          </mat-error>
+          <mat-error *ngIf="signUpForm.get('email')?.hasError('email')">
+            Incorrect E-mail.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-field">
+        <mat-form-field>
+          <input matInput formControlName="password" placeholder="Password" type="password">
+          <mat-hint class="ac-form-field-description">Between 6 and 24 characters.</mat-hint>
+          <mat-error *ngIf="signUpForm.get('password')?.hasError('required')">
+            Password is mandatory.
+          </mat-error>
+          <mat-error *ngIf="signUpForm.get('password')?.hasError('minlength')">
+            Password with less than 6 characters.
+          </mat-error>
+          <mat-error *ngIf="signUpForm.get('password')?.hasError('maxlength')">
+            Password with more than 24 characters.
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-field">
+        <mat-form-field>
+          <input matInput formControlName="passwordAgain" placeholder="Confirm the password" type="password"
+            [errorStateMatcher]="passwordsMatcher">
+          <mat-error *ngIf="signUpForm.hasError('passwordsNotEqual')">Passwords are different. They should be equal!
+          </mat-error>
+        </mat-form-field>
+      </div>
+      <div class="form-field">
+        <mat-checkbox formControlName="acceptTerms">I accept terms and conditions</mat-checkbox>
+      </div>
     </div>
-    <div class="form-field">
-      <mat-form-field>
-        <input matInput formControlName="password" placeholder="Password" type="password">
-        <mat-hint class="ac-form-field-description">Between 6 and 24 characters.</mat-hint>
-        <mat-error *ngIf="signUpForm.get('password')?.hasError('required')">
-          Password is mandatory.
-        </mat-error>
-        <mat-error *ngIf="signUpForm.get('password')?.hasError('minlength')">
-          Password with less than 6 characters.
-        </mat-error>
-        <mat-error *ngIf="signUpForm.get('password')?.hasError('maxlength')">
-          Password with more than 24 characters.
-        </mat-error>
-      </mat-form-field>
+    <div class="form-bottom">
+      <button mat-raised-button [disabled]="!signUpForm.valid">Create Account</button>
     </div>
-    <div class="form-field">
-      <mat-form-field>
-        <input matInput formControlName="passwordAgain" placeholder="Confirm the password" type="password"
-          [errorStateMatcher]="passwordsMatcher">
-        <mat-error *ngIf="signUpForm.hasError('passwordsNotEqual')">Passwords are different. They should be equal!
-        </mat-error>
-      </mat-form-field>
-    </div>
-    <div class="form-field">
-      <input type="checkbox" formControlName="acceptTerms">
-      <label>I accept terms and conditions</label>
-    </div>
-  </div>
-  <div class="form-bottom">
-    <button mat-raised-button [disabled]="!signUpForm.valid">Create Account</button>
-  </div>
-</form>
-
-
+  </form>
+</div>
 <!--
         <div class="formGroup">
           <button

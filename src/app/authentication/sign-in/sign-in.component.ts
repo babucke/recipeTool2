@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, FormGroupDirective, NgForm } from '@angular/forms';
 import { ErrorStateMatcher } from '@angular/material/core';
-import { EmailValidation, PasswordValidation } from 'src/app/shared/services/validators';
-import { AuthService } from "../../shared/services/auth.service";
+import { AuthService } from 'src/app/shared/services/authentication/auth.service';
+import { EmailValidation, PasswordValidation } from 'src/app/shared/services/authentication/validators';
 
 /** Error when invalid control is dirty, touched, or submitted. */
 export class MyErrorStateMatcher implements ErrorStateMatcher {

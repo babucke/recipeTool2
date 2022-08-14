@@ -1,0 +1,16 @@
+{
+    "recipe": {
+        "category": {
+            "RICE": "Reis",
+            "POTATO": "Kartoffel",
+            "SOUP": "Suppe",
+            "FISH": "Fisch",
+            "GRAIN": "Weizen"
+        },
+        "foodType": {
+            "MAIN_COURSE": "Hauptspeise",
+            "APPETIZER": "Vorspeise",
+            "DESSERT": "Nachspeise"
+        }
+    }
+}

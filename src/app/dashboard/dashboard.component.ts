@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { from } from 'rxjs';
-import { AuthService } from '../shared/services/auth.service';
+import { AuthService } from '../shared/services/authentication/auth.service';
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',

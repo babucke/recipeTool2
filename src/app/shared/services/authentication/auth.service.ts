@@ -1,5 +1,4 @@
 import { Injectable, NgZone } from '@angular/core';
-import { User } from '../services/user';
 import * as auth from 'firebase/auth';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import {
@@ -7,6 +6,7 @@ import {
   AngularFirestoreDocument,
 } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';
+import { User } from './user';
 @Injectable({
   providedIn: 'root',
 })
@@ -36,11 +36,9 @@ export class AuthService {
     return this.afAuth
       .signInWithEmailAndPassword(email, password)
       .then((result) => {
-        console.log(result, 'bin drin');
         this.SetUserData(result.user);
         this.afAuth.authState.subscribe((user) => {
           if (user) {
-            console.log('navigiere dashboardh');
             this.router.navigate(['dashboard']);
           }
         });
@@ -85,8 +83,13 @@ export class AuthService {
   // Returns true when user is looged in and email is verified
   get isLoggedIn(): boolean {
     const user = JSON.parse(localStorage.getItem('user')!);
-    console.log(user !== null && user.emailVerified !== false ? true : false, 'isLoggedIn');
     return user !== null && user.emailVerified !== false ? true : false;
+  }
+
+  get getUser() {
+    if(this.isLoggedIn) {
+      return JSON.parse(localStorage.getItem('user')!);
+    } 
   }
   // Sign in with Google
   GoogleAuth() {
@@ -110,7 +113,7 @@ export class AuthService {
   sign up with username/password and sign in with social auth  
   provider in Firestore database using AngularFirestore + AngularFirestoreDocument service */
   SetUserData(user: any) {
-    const userRef: AngularFirestoreDocument<any> = this.afs.doc(
+    const userRef: AngularFirestoreDocument<User> = this.afs.doc(
       `users/${user.uid}`
     );
     const userData: User = {
