@@ -9,6 +9,7 @@ import { VerifyEmailComponent } from './authentication/verify-email/verify-email
 import { HomeComponent } from './home/home.component';
 import { RecipeListComponent } from './recipe/list/recipe-list.component';
 import { RecipeDetailsComponent } from './recipe/details/recipe-details.component';
+import { IngredientListComponent } from './ingredient/list/ingredient-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/home', pathMatch: 'full' },
@@ -19,7 +20,8 @@ const routes: Routes = [
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'recipe', component: RecipeListComponent , canActivate: [AuthGuard]},
-  { path: 'recipe/:id', component: RecipeDetailsComponent, canActivate: [AuthGuard]}
+  { path: 'recipe/:id', component: RecipeDetailsComponent, canActivate: [AuthGuard]},
+  { path: 'ingredient', component: IngredientListComponent , canActivate: [AuthGuard]},
 ];
 
 @NgModule({

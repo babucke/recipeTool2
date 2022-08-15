@@ -24,18 +24,21 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { VerifyEmailComponent } from './authentication/verify-email/verify-email.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { ToolbarComponent } from './shared/components/toolbar/toolbar.component';
-import { HomeComponent } from './home/home.component';
 import { AuthService } from './shared/services/authentication/auth.service';
 import { MatTableModule } from '@angular/material/table';
-import { RecipeListComponent } from './recipe/list/recipe-list.component';
-import { RecipeDetailsComponent } from './recipe/details/recipe-details.component';
 import { MatSortModule } from '@angular/material/sort';
 import { MatListModule } from '@angular/material/list';
 import { MatSelectModule } from '@angular/material/select';
-import {TranslateLoader, TranslateModule} from '@ngx-translate/core';
-import {TranslateHttpLoader} from '@ngx-translate/http-loader';
-import {HttpClient, HttpClientModule} from '@angular/common/http';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { IngredientListComponent } from './ingredient/list/ingredient-list.component';
+import { HomeComponent } from './home/home.component';
+import { RecipeDetailsComponent } from './recipe/details/recipe-details.component';
+import { RecipeListComponent } from './recipe/list/recipe-list.component';
+import { FormsModule } from '@angular/forms';
+
 
 
 
@@ -52,7 +55,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     VerifyEmailComponent,
     HomeComponent,
     RecipeListComponent,
-    RecipeDetailsComponent
+    RecipeDetailsComponent,
+    IngredientListComponent
   ],
   imports: [
     AngularFireModule.initializeApp(environment.firebase),
@@ -68,12 +72,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     // ngx-translate and the loader module
     HttpClientModule,
     TranslateModule.forRoot({
-        loader: {
-            provide: TranslateLoader,
-            useFactory: HttpLoaderFactory,
-            deps: [HttpClient]
-        }
-    }),   
+      loader: {
+        provide: TranslateLoader,
+        useFactory: HttpLoaderFactory,
+        deps: [HttpClient]
+      }
+    }),
     BrowserAnimationsModule,
     AppRoutingModule,
     FlexLayoutModule,
@@ -88,7 +92,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
     MatTableModule,
     MatSortModule,
     MatListModule,
-    MatSelectModule
+    MatSelectModule,
+    FormsModule
   ],
   providers: [
     ScreenTrackingService, UserTrackingService, AuthService
