@@ -12,5 +12,29 @@
             "APPETIZER": "Vorspeise",
             "DESSERT": "Nachspeise"
         }
+    },
+    "ingredient": {
+        "packingUnit": {
+            "KILOGRAMM": "Kilogramm",
+            "GRAMM": "Gramm",
+            "MILLILITRE": "Milliliter",
+            "LITRE": "Liter",
+            "POUND": "Pfund"
+        },
+        "allergens": {
+            "MILK": "Milch",
+            "FISH": "Fisch",
+            "CEREALS": "Getreide",
+            "CRUSTACEANS": "Krustentiere",
+            "EGGS": "Eier",
+            "LUPIN": "Lupine",
+            "MOLLUSCS": "Weichtiere",
+            "MUSTARD": "Senf",
+            "NUTS": "Nüsse",
+            "PEANUTS": "Erdnüsse",
+            "SESAME_SEEDS": "Sesamsamen",
+            "SOY": "Soja",
+            "SULPUHR_DIOXIDE": "Schwefeldioxide"
+        }
     }
 }

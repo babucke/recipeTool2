@@ -14,7 +14,7 @@ export class RecipeDetailsComponent implements OnInit {
   recipeForm: FormGroup;
 
   categoryValues = Object.values(Category).map(item => String(item)).filter(item => !isNaN(Number(item)) === false);
-  foodTypeValues = Object.values(FoodType).map(item => String(item)).filter(item => !isNaN(Number(item)) === false);;
+  foodTypeValues = Object.values(FoodType).map(item => String(item)).filter(item => !isNaN(Number(item)) === false);
 
   public recipe?: Recipe;
 
