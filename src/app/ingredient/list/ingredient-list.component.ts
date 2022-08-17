@@ -1,11 +1,10 @@
 import { SelectionModel } from '@angular/cdk/collections';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { AngularFirestoreCollection, AngularFirestore } from '@angular/fire/compat/firestore';
-import { MatTableDataSource } from '@angular/material/table';
+import { MatTable, MatTableDataSource } from '@angular/material/table';
 import { Observable } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/authentication/auth.service';
 import { Allergens, Category, Ingredient, PackingUnit } from 'src/app/shared/services/recipe/ingredient';
-import {MatTable} from '@angular/material';
 
 @Component({
   selector: 'app-ingredient-list',
@@ -13,7 +12,7 @@ import {MatTable} from '@angular/material';
   styleUrls: ['./ingredient-list.component.scss']
 })
 export class IngredientListComponent implements OnInit {
-  @ViewChild(MatTable) table: MatTable<any>;
+  @ViewChild(MatTable) table?: MatTable<any>;
 
   displayedColumns: string[] = ['name', 'price', 'quantity', 'allergens', 'symbol'];
   dataSource: MatTableDataSource<Ingredient> = new MatTableDataSource<Ingredient>();
@@ -122,7 +121,7 @@ export class IngredientListComponent implements OnInit {
       console.log(indexOfNewElement, this.dataSource.data);
       this.dataSource.data.splice(indexOfNewElement, 1);*/
       const removed = this.dataSource.data.pop();
-      this.table.renderRows();
+      this.table?.renderRows();
       console.log('removed object from datasource', removed)
     }
     this.editedElement = undefined;
