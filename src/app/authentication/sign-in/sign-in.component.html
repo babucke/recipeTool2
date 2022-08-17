@@ -1,10 +1,17 @@
 <div fxLayout="column" fxLayoutAlign="space-around center">
-  <form [formGroup]="signInForm"
-    (ngSubmit)="authService.SignIn(signInForm.get('email')?.value, signInForm.get('password')?.value)">
+  <form
+    [formGroup]="signInForm"
+    (ngSubmit)="
+      authService.SignIn(
+        signInForm.get('email')?.value,
+        signInForm.get('password')?.value
+      )
+    "
+  >
     <div class="form-content">
       <div class="form-field">
         <mat-form-field>
-          <input matInput formControlName="email" placeholder="Email">
+          <input matInput formControlName="email" placeholder="Email" />
           <mat-error *ngIf="signInForm.get('email')?.hasError('required')">
             E-mail is mandatory.
           </mat-error>
@@ -15,19 +22,35 @@
       </div>
       <div class="form-field">
         <mat-form-field>
-          <input matInput formControlName="password" placeholder="Password" type="password">
+          <input
+            matInput
+            formControlName="password"
+            placeholder="Password"
+            type="password"
+          />
         </mat-form-field>
       </div>
     </div>
-    <div class="form-bottom" fxLayout="column" fxLayoutAlign="center center">
-      <button mat-raised-button color="primary" [disabled]="!signInForm.valid">Log In</button>
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <button mat-fab-button color="primary" [disabled]="!signInForm.valid">
+        Log In
+      </button>
     </div>
   </form>
-  <div class="forgotPassword">
-    <span routerLink="/forgot-password">Forgot Password?</span>
+  <div class="linkLogin">
+    <span class="linkLogin" routerLink="/forgot-password"
+      >Forgot Password?</span
+    >
   </div>
-  <div class="redirectToLogin">
-    <span>Don't have an account?<span class="redirect" routerLink="/register-user"> Sign Up</span></span>
+  <div class="linkRegister">
+    <span
+      >Don't have an account?<span
+        class="link.Register"
+        routerLink="/register-user"
+      >
+        Sign Up!</span
+      ></span
+    >
   </div>
 </div>
 <!--<div class="authBlock">
